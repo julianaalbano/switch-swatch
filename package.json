@@ -1,0 +1,23 @@
+{
+  "name": "swatch",
+  "version": "1.0.0",
+  "description": "Juliana Albano's coding challenge for Helpful Human!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node server/seed.js",
+    "start": "node server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.0",
+    "sequelize": "^5.19.0"
+  }
+}
