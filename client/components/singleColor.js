@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchSingleColor, fetchSingleCategory } from '../store/colors';
+import { fetchSingleColor } from '../store/colors';
 import { Link } from 'react-router-dom';
 
 export class SingleColor extends React.Component {
@@ -42,9 +42,6 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchSingleColor: function(id) {
       dispatch(fetchSingleColor(id));
-    },
-    fetchSingleCategory: function(id) {
-      dispatch(fetchSingleCategory(id));
     },
   };
 }
