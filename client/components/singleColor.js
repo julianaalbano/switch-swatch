@@ -26,7 +26,7 @@ export class SingleColor extends React.Component {
           </div>
         </div>
         <div className="wrapper">
-          <Link to="/colors" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <button type="button" className="pointer-cursor">
               Clear
             </button>

@@ -26,11 +26,7 @@ class ColorCategory extends React.Component {
           ))}
         </div>
         <br />
-        <Link
-          to="/colors"
-          className="wrapper"
-          style={{ textDecoration: 'none' }}
-        >
+        <Link to="/" className="wrapper" style={{ textDecoration: 'none' }}>
           <button type="button" className="pointer-cursor">
             Back to all colors
           </button>

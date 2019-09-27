@@ -192,7 +192,7 @@ function (_React$Component) {
           type: "button"
         }, color.hexCode)));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/colors",
+        to: "/",
         className: "wrapper",
         style: {
           textDecoration: 'none'
@@ -387,28 +387,6 @@ function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
-/***/ "./client/components/home.js":
-/*!***********************************!*\
-  !*** ./client/components/home.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
- // import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
-
-var Home = function Home(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Made it to your home component!"));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Home);
-
-/***/ }),
-
 /***/ "./client/components/nav.js":
 /*!**********************************!*\
   !*** ./client/components/nav.js ***!
@@ -428,7 +406,7 @@ var Nav = function Nav(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "nav-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/colors"
+    to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "hh.png",
     id: "nav-logo"
@@ -643,7 +621,7 @@ function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, singleColor.hexCode))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-        to: "/colors",
+        to: "/",
         style: {
           textDecoration: 'none'
         }
@@ -736,12 +714,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _components_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/home */ "./client/components/home.js");
-/* harmony import */ var _components_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/colors */ "./client/components/colors.js");
-/* harmony import */ var _components_singleColor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/singleColor */ "./client/components/singleColor.js");
-/* harmony import */ var _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/colorCategory */ "./client/components/colorCategory.js");
+/* harmony import */ var _components_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/colors */ "./client/components/colors.js");
+/* harmony import */ var _components_singleColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/singleColor */ "./client/components/singleColor.js");
+/* harmony import */ var _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/colorCategory */ "./client/components/colorCategory.js");
  // import {connect} from 'react-redux'
-
 
 
 
@@ -752,51 +728,62 @@ var Routes = function Routes(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
-    component: _components_home__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-    exact: true,
-    path: "/colors",
-    component: _components_colors__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _components_colors__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/colors/:hexName",
-    component: _components_singleColor__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_singleColor__WEBPACK_IMPORTED_MODULE_3__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Red",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Orange",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Yellow",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Green",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Blue",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Purple",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Brown",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/Gray",
-    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__["default"]
   }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Routes));
+{
+  /* <Switch>
+  <Route exact path="/" component={Colors} />
+  <Route exact path="/colors" component={Colors} />
+  <Route exact path="/colors/:hexName" component={SingleColor} />
+  <Route exact path="/Red" component={colorCategory} />
+  <Route exact path="/Orange" component={colorCategory} />
+  <Route exact path="/Yellow" component={colorCategory} />
+  <Route exact path="/Green" component={colorCategory} />
+  <Route exact path="/Blue" component={colorCategory} />
+  <Route exact path="/Purple" component={colorCategory} />
+  <Route exact path="/Brown" component={colorCategory} />
+  <Route exact path="/Gray" component={colorCategory} />
+  </Switch> */
+}
 
 /***/ }),
 
