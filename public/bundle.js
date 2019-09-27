@@ -175,7 +175,9 @@ function (_React$Component) {
       if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading...");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "all-category-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, colors.colorCategory.name, " category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "category-title"
+      }, colors.colorCategory.name, " category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "ind-colors-container"
       }, colors.colorCategory.colors.map(function (color) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -190,7 +192,11 @@ function (_React$Component) {
           type: "button"
         }, color.hexCode)));
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/colors"
+        to: "/colors",
+        className: "wrapper",
+        style: {
+          textDecoration: 'none'
+        }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button"
       }, "Back to all colors")));
@@ -559,15 +565,24 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var singleColor = this.props.singleColor.singleColor;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Made it to your SingleColor component!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your beautiful selection"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "span-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "single-view-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         style: {
           backgroundColor: "".concat(singleColor.hexCode)
         }
-      }, singleColor.hexCode)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-        to: "/colors"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, singleColor.hexCode))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/colors",
+        style: {
+          textDecoration: 'none'
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button"
-      }, "Back to all colors")));
+      }, "Clear"))));
     }
   }]);
 

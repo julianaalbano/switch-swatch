@@ -16,16 +16,19 @@ export class SingleColor extends React.Component {
   render() {
     const { singleColor } = this.props.singleColor;
     return (
-      <div>
-        <h1>Made it to your SingleColor component!</h1>
-        <div>
-          <p>Your beautiful selection</p>
-          <div style={{ backgroundColor: `${singleColor.hexCode}` }}>
-            {singleColor.hexCode}
+      <div id="span-page">
+        <div id="single-view-container">
+          <div>
+            <h1 style={{ backgroundColor: `${singleColor.hexCode}` }} />
+          </div>
+          <div>
+            <p>{singleColor.hexCode}</p>
           </div>
         </div>
-        <Link to="/colors">
-          <button type="button">Back to all colors</button>
+        <Link to="/colors" style={{ textDecoration: 'none' }}>
+          <div className="wrapper">
+            <button type="button">Clear</button>
+          </div>
         </Link>
       </div>
     );
