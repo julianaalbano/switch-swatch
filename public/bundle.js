@@ -289,8 +289,15 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var singleColor = this.props.singleColor.singleColor;
-      console.log(singleColor.data.hexCode);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Made it to your SingleColor component!"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Made it to your SingleColor component!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Your beautiful selection"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          backgroundColor: "".concat(singleColor.hexCode)
+        }
+      }, singleColor.hexCode)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+        to: "/colors"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button"
+      }, "Back to all colors")));
     }
   }]);
 
@@ -541,8 +548,7 @@ var fetchSingleColor = function fetchSingleColor(id) {
 
               case 3:
                 res = _context2.sent;
-                console.log(res); // dispatch(gotSingleColor(res.data));
-
+                dispatch(gotSingleColor(res.data));
                 _context2.next = 10;
                 break;
 

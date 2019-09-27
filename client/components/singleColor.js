@@ -15,20 +15,18 @@ export class SingleColor extends React.Component {
 
   render() {
     const { singleColor } = this.props.singleColor;
-    console.log(singleColor.data.hexCode);
     return (
       <div>
         <h1>Made it to your SingleColor component!</h1>
-        {/* <div>
+        <div>
           <p>Your beautiful selection</p>
           <div style={{ backgroundColor: `${singleColor.hexCode}` }}>
             {singleColor.hexCode}
           </div>
-          <p>This color is in the family</p>
         </div>
         <Link to="/colors">
           <button type="button">Back to all colors</button>
-        </Link> */}
+        </Link>
       </div>
     );
   }

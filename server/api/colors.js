@@ -17,7 +17,14 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const color = await Color.findByPk(req.params.id);
+    const color = await Color.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: {
+        model: Category,
+      },
+    });
     res.json(color);
   } catch (err) {
     next(err);

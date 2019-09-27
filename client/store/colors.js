@@ -52,8 +52,7 @@ export const fetchColors = () => async dispatch => {
 export const fetchSingleColor = id => async dispatch => {
   try {
     const res = await axios.get(`/api/colors/${id}`);
-    console.log(res);
-    // dispatch(gotSingleColor(res.data));
+    dispatch(gotSingleColor(res.data));
   } catch (err) {
     console.error(err);
   }
