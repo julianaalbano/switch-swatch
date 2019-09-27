@@ -199,8 +199,9 @@ function (_React$Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        id: "back-to-colors"
-      }, "Back to all colors")));
+        className: "pointer-cursor",
+        id: "backtocolors-margin"
+      }, "Back to all colors")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
     }
   }]);
 
@@ -275,7 +276,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Colors).call(this));
     _this.state = {
       currentPage: 1,
-      todosPerPage: 12
+      colorsPerPage: 12
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
@@ -301,21 +302,27 @@ function (_React$Component) {
       var colors = this.props.colors;
       var _this$state = this.state,
           currentPage = _this$state.currentPage,
-          todosPerPage = _this$state.todosPerPage;
-      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading..."); // Logic for displaying current todos
-
-      var indexOfLastTodo = currentPage * todosPerPage;
-      var indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-      var currentTodos = colors.allColors.slice(indexOfFirstTodo, indexOfLastTodo);
-      var renderTodos = currentTodos.map(function (todo) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: todo.id
-        }, todo.hexCode);
-      }); // Logic for displaying page numbers
-
+          colorsPerPage = _this$state.colorsPerPage;
+      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading...");
+      var indexOfLastColor = currentPage * colorsPerPage;
+      var indexOfFirstColor = indexOfLastColor - colorsPerPage;
+      var currentColors = colors.allColors.slice(indexOfFirstColor, indexOfLastColor);
+      var renderColors = currentColors.map(function (color) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+          to: "/colors/".concat(color.id),
+          key: color.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "color-container",
+          style: {
+            backgroundColor: "".concat(color.hexCode)
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button"
+        }, color.hexCode)));
+      });
       var pageNumbers = [];
 
-      for (var i = 1; i <= Math.ceil(colors.allColors.length / todosPerPage); i++) {
+      for (var i = 1; i <= Math.ceil(colors.allColors.length / colorsPerPage); i++) {
         pageNumbers.push(i);
       }
 
@@ -342,21 +349,13 @@ function (_React$Component) {
           }, number);
         }
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, renderTodos), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "span-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "all-colors-container"
+      }, renderColors), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         id: "page-numbers"
-      }, renderPageNumbers)) // <div id="all-colors-container">
-      //   {colors.allColors.map(color => (
-      //     <Link to={`/colors/${color.id}`} key={color.id}>
-      //       <div
-      //         className="color-container"
-      //         style={{ backgroundColor: `${color.hexCode}` }}
-      //       >
-      //         <button type="button">{color.hexCode}</button>
-      //       </div>
-      //     </Link>
-      //   ))}
-      // </div>
-      ;
+      }, renderPageNumbers));
     }
   }]);
 
@@ -642,15 +641,16 @@ function (_React$Component) {
         style: {
           backgroundColor: "".concat(singleColor.hexCode)
         }
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, singleColor.hexCode))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, singleColor.hexCode))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "wrapper"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
         to: "/colors",
         style: {
           textDecoration: 'none'
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "wrapper"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button"
+        type: "button",
+        className: "pointer-cursor"
       }, "Clear"))));
     }
   }]);

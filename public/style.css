@@ -78,6 +78,8 @@
   margin-left: 20px;
   margin-right: 20px;
   font-weight: 900;
+  outline: 0;
+  cursor: pointer;
 }
 
 #sidebar-colors a {
@@ -126,13 +128,11 @@
   color: #363c3c;
   border-radius: 10px;
   border-color: #363c3c;
-  margin-bottom: 50px;
 }
 
 #single-view-container {
   display: flex;
   flex-direction: column;
-  /* width: 100%; */
   justify-content: center;
   margin: 55px 30px;
   border: solid #363c3c;
@@ -142,7 +142,7 @@
 
 #single-view-container h1 {
   min-width: 500px;
-  min-height: 500px;
+  min-height: 580px;
   margin: 0;
   border-radius: 10px 10px 0 0;
 }
@@ -160,6 +160,7 @@
 
 #page-numbers {
   display: flex;
+  justify-content: center;
 }
 
 .ind-page-nums {
@@ -170,4 +171,9 @@
   font-size: 15pt;
   cursor: pointer;
   outline: 0;
+}
+
+.pointer-cursor:hover {
+  cursor: pointer;
+  margin: 0;
 }

@@ -25,11 +25,13 @@ export class SingleColor extends React.Component {
             <p>{singleColor.hexCode}</p>
           </div>
         </div>
-        <Link to="/colors" style={{ textDecoration: 'none' }}>
-          <div className="wrapper">
-            <button type="button">Clear</button>
-          </div>
-        </Link>
+        <div className="wrapper">
+          <Link to="/colors" style={{ textDecoration: 'none' }}>
+            <button type="button" className="pointer-cursor">
+              Clear
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }

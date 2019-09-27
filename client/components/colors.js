@@ -8,7 +8,7 @@ class Colors extends React.Component {
     super();
     this.state = {
       currentPage: 1,
-      todosPerPage: 12,
+      colorsPerPage: 12,
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -24,26 +24,33 @@ class Colors extends React.Component {
 
   render() {
     const { colors } = this.props;
-    const { currentPage, todosPerPage } = this.state;
+    const { currentPage, colorsPerPage } = this.state;
     if (this.props.colors.loading) return <h1>Loading...</h1>;
 
-    // Logic for displaying current todos
-    const indexOfLastTodo = currentPage * todosPerPage;
-    const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
-    const currentTodos = colors.allColors.slice(
-      indexOfFirstTodo,
-      indexOfLastTodo
+    const indexOfLastColor = currentPage * colorsPerPage;
+    const indexOfFirstColor = indexOfLastColor - colorsPerPage;
+    const currentColors = colors.allColors.slice(
+      indexOfFirstColor,
+      indexOfLastColor
     );
 
-    const renderTodos = currentTodos.map(todo => {
-      return <li key={todo.id}>{todo.hexCode}</li>;
+    const renderColors = currentColors.map(color => {
+      return (
+        <Link to={`/colors/${color.id}`} key={color.id}>
+          <div
+            className="color-container"
+            style={{ backgroundColor: `${color.hexCode}` }}
+          >
+            <button type="button">{color.hexCode}</button>
+          </div>
+        </Link>
+      );
     });
 
-    // Logic for displaying page numbers
     const pageNumbers = [];
     for (
       let i = 1;
-      i <= Math.ceil(colors.allColors.length / todosPerPage);
+      i <= Math.ceil(colors.allColors.length / colorsPerPage);
       i++
     ) {
       pageNumbers.push(i);
@@ -79,22 +86,10 @@ class Colors extends React.Component {
     });
 
     return (
-      <div>
-        <ul>{renderTodos}</ul>
+      <div id="span-page">
+        <div id="all-colors-container">{renderColors}</div>
         <p id="page-numbers">{renderPageNumbers}</p>
       </div>
-      // <div id="all-colors-container">
-      //   {colors.allColors.map(color => (
-      //     <Link to={`/colors/${color.id}`} key={color.id}>
-      //       <div
-      //         className="color-container"
-      //         style={{ backgroundColor: `${color.hexCode}` }}
-      //       >
-      //         <button type="button">{color.hexCode}</button>
-      //       </div>
-      //     </Link>
-      //   ))}
-      // </div>
     );
   }
 }
