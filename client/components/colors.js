@@ -1,13 +1,54 @@
 import React from 'react';
-// import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { fetchColors } from '../store/colors';
+import { Link } from 'react-router-dom';
 
-const Colors = props => {
-  return (
-    <div>
-      <h1>Made it to your Colors component!</h1>
-    </div>
-  );
-};
+class Colors extends React.Component {
+  constructor() {
+    super();
+    // this.state = {};
+  }
+  componentDidMount() {
+    this.props.fetchColors();
+  }
+  render() {
+    const { colors } = this.props;
+    return (
+      <div>
+        <h1>Made it to your Colors component!</h1>
+        {colors.allColors.map(color => (
+          <Link to={`/colors/${color.id}`} key={color.id}>
+            <div
+              className="color-container"
+              style={{ backgroundColor: `${color.hexCode}` }}
+            >
+              <button type="button">{color.hexCode}</button>
+            </div>
+          </Link>
+        ))}
+      </div>
+      // <div>
+      //   <p>you got this</p>
+      // </div>
+    );
+  }
+}
 
-export default Colors;
+function mapStateToProps(state) {
+  return {
+    colors: state.colors,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchColors: function() {
+      dispatch(fetchColors());
+    },
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Colors);

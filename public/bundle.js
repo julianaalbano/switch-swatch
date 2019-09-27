@@ -120,14 +120,89 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
- // import {connect} from 'react-redux'
-// import {Link} from 'react-router-dom'
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/colors */ "./client/store/colors.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var Colors = function Colors(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Made it to your Colors component!"));
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/* harmony default export */ __webpack_exports__["default"] = (Colors);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var Colors =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Colors, _React$Component);
+
+  function Colors() {
+    _classCallCheck(this, Colors);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Colors).call(this)); // this.state = {};
+  }
+
+  _createClass(Colors, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchColors();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var colors = this.props.colors;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Made it to your Colors component!"), colors.allColors.map(function (color) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+          to: "/colors/".concat(color.id),
+          key: color.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "color-container",
+          style: {
+            backgroundColor: "".concat(color.hexCode)
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button"
+        }, color.hexCode)));
+      })) // <div>
+      //   <p>you got this</p>
+      // </div>
+      ;
+    }
+  }]);
+
+  return Colors;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+function mapStateToProps(state) {
+  return {
+    colors: state.colors
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchColors: function fetchColors() {
+      dispatch(Object(_store_colors__WEBPACK_IMPORTED_MODULE_2__["fetchColors"])());
+    }
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Colors));
 
 /***/ }),
 
@@ -266,60 +341,61 @@ var Routes = function Routes(props) {
 
 /***/ }),
 
-/***/ "./client/store/book.js":
-/*!******************************!*\
-  !*** ./client/store/book.js ***!
-  \******************************/
-/*! exports provided: me, auth, logout, default */
+/***/ "./client/store/colors.js":
+/*!********************************!*\
+  !*** ./client/store/colors.js ***!
+  \********************************/
+/*! exports provided: fetchColors, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "me", function() { return me; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchColors", function() { return fetchColors; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _history__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../history */ "./client/history.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-
+ // import history from '../history';
 
 /**
  * ACTION TYPES
  */
 
-var GET_USER = 'GET_USER';
-var REMOVE_USER = 'REMOVE_USER';
+var GOT_COLORS = 'GOT_COLORS'; // const REMOVE_USER = 'REMOVE_USER';
+
 /**
  * INITIAL STATE
  */
 
-var defaultUser = {};
+var initialState = {
+  allColors: [],
+  singleColor: {}
+};
 /**
  * ACTION CREATORS
  */
 
-var getUser = function getUser(user) {
+var gotColors = function gotColors(colors) {
   return {
-    type: GET_USER,
-    user: user
+    type: GOT_COLORS,
+    colors: colors
   };
-};
+}; // const removeUser = () => ({ type: REMOVE_USER });
 
-var removeUser = function removeUser() {
-  return {
-    type: REMOVE_USER
-  };
-};
 /**
  * THUNK CREATORS
  */
 
 
-var me = function me() {
+var fetchColors = function fetchColors() {
   return (
     /*#__PURE__*/
     function () {
@@ -333,11 +409,11 @@ var me = function me() {
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/auth/me');
+                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/colors');
 
               case 3:
                 res = _context.sent;
-                dispatch(getUser(res.data || defaultUser));
+                dispatch(gotColors(res.data));
                 _context.next = 10;
                 break;
 
@@ -359,114 +435,45 @@ var me = function me() {
       };
     }()
   );
-};
-var auth = function auth(email, password, method) {
-  return (
-    /*#__PURE__*/
-    function () {
-      var _ref2 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(dispatch) {
-        var res;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/auth/".concat(method), {
-                  email: email,
-                  password: password
-                });
+}; // export const auth = (email, password, method) => async dispatch => {
+//   let res;
+//   try {
+//     res = await axios.post(`/auth/${method}`, { email, password });
+//   } catch (authError) {
+//     return dispatch(getUser({ error: authError }));
+//   }
+//   try {
+//     dispatch(getUser(res.data));
+//     history.push('/home');
+//   } catch (dispatchOrHistoryErr) {
+//     console.error(dispatchOrHistoryErr);
+//   }
+// };
+// export const logout = () => async dispatch => {
+//   try {
+//     await axios.post('/auth/logout');
+//     dispatch(removeUser());
+//     history.push('/login');
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
 
-              case 3:
-                res = _context2.sent;
-                _context2.next = 9;
-                break;
-
-              case 6:
-                _context2.prev = 6;
-                _context2.t0 = _context2["catch"](0);
-                return _context2.abrupt("return", dispatch(getUser({
-                  error: _context2.t0
-                })));
-
-              case 9:
-                try {
-                  dispatch(getUser(res.data));
-                  _history__WEBPACK_IMPORTED_MODULE_1__["default"].push('/home');
-                } catch (dispatchOrHistoryErr) {
-                  console.error(dispatchOrHistoryErr);
-                }
-
-              case 10:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, null, [[0, 6]]);
-      }));
-
-      return function (_x2) {
-        return _ref2.apply(this, arguments);
-      };
-    }()
-  );
-};
-var logout = function logout() {
-  return (
-    /*#__PURE__*/
-    function () {
-      var _ref3 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(dispatch) {
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                _context3.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/auth/logout');
-
-              case 3:
-                dispatch(removeUser());
-                _history__WEBPACK_IMPORTED_MODULE_1__["default"].push('/login');
-                _context3.next = 10;
-                break;
-
-              case 7:
-                _context3.prev = 7;
-                _context3.t0 = _context3["catch"](0);
-                console.error(_context3.t0);
-
-              case 10:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3, null, [[0, 7]]);
-      }));
-
-      return function (_x3) {
-        return _ref3.apply(this, arguments);
-      };
-    }()
-  );
-};
 /**
  * REDUCER
  */
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultUser;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case GET_USER:
-      return action.user;
-
-    case REMOVE_USER:
-      return defaultUser;
+    case GOT_COLORS:
+      return _objectSpread({}, state, {
+        allColors: action.colors
+      });
+    // case REMOVE_USER:
+    //   return defaultUser;
 
     default:
       return state;
@@ -479,7 +486,7 @@ var logout = function logout() {
 /*!*******************************!*\
   !*** ./client/store/index.js ***!
   \*******************************/
-/*! exports provided: default, me, auth, logout */
+/*! exports provided: default, fetchColors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -490,12 +497,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 /* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! redux-devtools-extension */ "./node_modules/redux-devtools-extension/index.js");
 /* harmony import */ var redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _book__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./book */ "./client/store/book.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "me", function() { return _book__WEBPACK_IMPORTED_MODULE_4__["me"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return _book__WEBPACK_IMPORTED_MODULE_4__["auth"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return _book__WEBPACK_IMPORTED_MODULE_4__["logout"]; });
+/* harmony import */ var _colors__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./colors */ "./client/store/colors.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fetchColors", function() { return _colors__WEBPACK_IMPORTED_MODULE_4__["fetchColors"]; });
 
 
 
@@ -503,7 +506,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var reducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  book: _book__WEBPACK_IMPORTED_MODULE_4__["default"]
+  colors: _colors__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 var middleware = Object(redux_devtools_extension__WEBPACK_IMPORTED_MODULE_3__["composeWithDevTools"])(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"], Object(redux_logger__WEBPACK_IMPORTED_MODULE_1__["createLogger"])({
   collapsed: true
@@ -41320,7 +41323,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
