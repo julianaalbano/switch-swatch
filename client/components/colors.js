@@ -25,7 +25,13 @@ class Colors extends React.Component {
   render() {
     const { colors } = this.props;
     const { currentPage, colorsPerPage } = this.state;
-    if (this.props.colors.loading) return <h1>Loading...</h1>;
+    if (this.props.colors.loading)
+      return (
+        <img
+          src="https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif"
+          className="loading-img"
+        />
+      );
 
     const indexOfLastColor = currentPage * colorsPerPage;
     const indexOfFirstColor = indexOfLastColor - colorsPerPage;

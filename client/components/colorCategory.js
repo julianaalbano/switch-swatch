@@ -9,7 +9,13 @@ class ColorCategory extends React.Component {
   }
   render() {
     const { colors } = this.props;
-    if (this.props.colors.loading) return <h1>Loading...</h1>;
+    if (this.props.colors.loading)
+      return (
+        <img
+          src="https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif"
+          className="loading-img"
+        />
+      );
     return (
       <div id="all-category-container">
         <h1 id="category-title">{colors.colorCategory.name}</h1>

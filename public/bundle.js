@@ -172,7 +172,10 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var colors = this.props.colors;
-      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading...");
+      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
+        className: "loading-img"
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "all-category-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -302,7 +305,10 @@ function (_React$Component) {
       var _this$state = this.state,
           currentPage = _this$state.currentPage,
           colorsPerPage = _this$state.colorsPerPage;
-      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading...");
+      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
+        className: "loading-img"
+      });
       var indexOfLastColor = currentPage * colorsPerPage;
       var indexOfFirstColor = indexOfLastColor - colorsPerPage;
       var currentColors = colors.allColors.slice(indexOfFirstColor, indexOfLastColor);
@@ -769,21 +775,6 @@ var Routes = function Routes(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Routes));
-{
-  /* <Switch>
-  <Route exact path="/" component={Colors} />
-  <Route exact path="/colors" component={Colors} />
-  <Route exact path="/colors/:hexName" component={SingleColor} />
-  <Route exact path="/Red" component={colorCategory} />
-  <Route exact path="/Orange" component={colorCategory} />
-  <Route exact path="/Yellow" component={colorCategory} />
-  <Route exact path="/Green" component={colorCategory} />
-  <Route exact path="/Blue" component={colorCategory} />
-  <Route exact path="/Purple" component={colorCategory} />
-  <Route exact path="/Brown" component={colorCategory} />
-  <Route exact path="/Gray" component={colorCategory} />
-  </Switch> */
-}
 
 /***/ }),
 
