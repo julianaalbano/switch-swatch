@@ -14,8 +14,7 @@ class Colors extends React.Component {
   render() {
     const { colors } = this.props;
     return (
-      <div>
-        <h1>Made it to your Colors component!</h1>
+      <div id="all-colors-container">
         {colors.allColors.map(color => (
           <Link to={`/colors/${color.id}`} key={color.id}>
             <div

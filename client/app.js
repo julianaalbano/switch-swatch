@@ -1,10 +1,16 @@
 import React from 'react';
 import Routes from './routes';
+import Nav from './components/nav';
+import Sidebar from './components/sidebar';
 
 const App = () => {
   return (
     <div>
-      <Routes />
+      <Nav />
+      <div id="app-flex">
+        <Sidebar />
+        <Routes />
+      </div>
     </div>
   );
 };
