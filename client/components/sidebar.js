@@ -1,68 +1,64 @@
 import React from 'react';
-// import { connect } from 'react-redux';
-// import { fetchSingleColor } from '../store/colors';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import { fetchSingleColor } from '../store/colors';
+import { connect } from 'react-redux';
 
 class Sidebar extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-  // componentDidMount() {
-  //   // this.props.fetchColors();
-  // }
-  // colorGenerator = () => {
-  //   let randomNum = Math.floor(Math.random() * 104) + 1;
-  //   // this.setState({ randomNum });
-  // };
-  // let randomColor = colorGenerator();
+  handleClick = () => {
+    let randomNum = Math.floor(Math.random() * 104) + 1;
+    this.props.history.push(`/colors/${randomNum}`);
+    this.props.fetchSingleColor(randomNum);
+  };
+
   render() {
-    const { history } = this.props;
     return (
       <div id="sidebar-container">
-        {/* <Link to={`/colors/${colorGenerator()}`}> */}
-        <button
-          type="button"
-          id="random-button"
-          onClick={history.push(
-            `/colors/${Math.floor(Math.random() * 104) + 1}`
-          )}
-        >
+        <button type="button" id="random-button" onClick={this.handleClick}>
           Random Color
         </button>
-        {/* </Link> */}
         <div id="sidebar-colors">
-          <p>Red</p>
-          <p>Orange</p>
-          <p>Yellow</p>
-          <p>Green</p>
-          <p>Blue</p>
-          <p>Purple</p>
-          <p>Brown</p>
-          <p>Gray</p>
+          <div className="sidebar-color-links">
+            <Link to="/red">Red</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/orange">Orange</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/yellow">Yellow</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/green">Green</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/blue">Blue</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/purple">Purple</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/brown">Brown</Link>
+          </div>
+          <div className="sidebar-color-links">
+            <Link to="/gray">Gray</Link>
+          </div>
+          <br />
         </div>
       </div>
     );
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     singleColor: state.colors,
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchSingleColor: function(id) {
+      dispatch(fetchSingleColor(id));
+    },
+  };
+}
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     fetchSingleColor: function(id) {
-//       dispatch(fetchSingleColor(id));
-//     },
-//   };
-// }
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(Sidebar);
-
-export default Sidebar;
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Sidebar)
+);

@@ -1,6 +1,6 @@
 import React from 'react';
 // import {connect} from 'react-redux'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import Home from './components/home';
 import Colors from './components/colors';
 import SingleColor from './components/singleColor';
@@ -15,4 +15,4 @@ const Routes = props => {
   );
 };
 
-export default Routes;
+export default withRouter(Routes);

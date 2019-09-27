@@ -75,11 +75,20 @@
   font-weight: 900;
 }
 
-#sidebar-colors {
-  padding: 20px;
+#sidebar-colors a {
+  margin: 23px;
   background-color: #d6d8d7;
   font-size: 15pt;
   color: #363c3c;
+  text-decoration: none;
+}
+
+.sidebar-color-links {
+  margin-top: 30px;
+}
+
+#sidebar-colors a:hover {
+  font-weight: 900;
 }
 
 #search-bar {
