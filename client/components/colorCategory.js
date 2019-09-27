@@ -30,7 +30,9 @@ class ColorCategory extends React.Component {
           className="wrapper"
           style={{ textDecoration: 'none' }}
         >
-          <button type="button">Back to all colors</button>
+          <button type="button" id="back-to-colors">
+            Back to all colors
+          </button>
         </Link>
       </div>
     );

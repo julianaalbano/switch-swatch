@@ -198,7 +198,8 @@ function (_React$Component) {
           textDecoration: 'none'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button"
+        type: "button",
+        id: "back-to-colors"
       }, "Back to all colors")));
     }
   }]);
