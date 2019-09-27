@@ -99,8 +99,8 @@
 #search-bar {
   width: 250px;
   height: 30px;
-  color: #363c3c;
-  font-size: 15pt;
+  color: #808080;
+  font-size: 13pt;
   border-radius: 3px;
   border-color: #363c3c;
   background-color: #fefffe;
@@ -156,4 +156,18 @@
 
 #span-page {
   width: 100%;
+}
+
+#page-numbers {
+  display: flex;
+}
+
+.ind-page-nums {
+  margin: 10px;
+  background-color: #fefffe;
+  border-color: #fefffe;
+  color: #363c3c;
+  font-size: 15pt;
+  cursor: pointer;
+  outline: 0;
 }

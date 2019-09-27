@@ -100,7 +100,7 @@ export const fetchSingleCategory = name => async dispatch => {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GOT_COLORS:
-      return { ...state, allColors: action.colors };
+      return { ...state, allColors: action.colors, loading: false };
     case GOT_SINGLE_COLOR:
       return { ...state, singleColor: action.color };
     case GOT_COLOR_CATEGORY:

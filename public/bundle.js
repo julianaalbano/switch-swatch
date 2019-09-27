@@ -249,9 +249,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -268,9 +268,17 @@ function (_React$Component) {
   _inherits(Colors, _React$Component);
 
   function Colors() {
+    var _this;
+
     _classCallCheck(this, Colors);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Colors).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Colors).call(this));
+    _this.state = {
+      currentPage: 1,
+      todosPerPage: 12
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Colors, [{
@@ -279,24 +287,76 @@ function (_React$Component) {
       this.props.fetchColors();
     }
   }, {
+    key: "handleClick",
+    value: function handleClick(event) {
+      this.setState({
+        currentPage: Number(event.target.id)
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var colors = this.props.colors;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "all-colors-container"
-      }, colors.allColors.map(function (color) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-          to: "/colors/".concat(color.id),
-          key: color.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "color-container",
-          style: {
-            backgroundColor: "".concat(color.hexCode)
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          type: "button"
-        }, color.hexCode)));
-      }));
+      var _this$state = this.state,
+          currentPage = _this$state.currentPage,
+          todosPerPage = _this$state.todosPerPage;
+      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading..."); // Logic for displaying current todos
+
+      var indexOfLastTodo = currentPage * todosPerPage;
+      var indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+      var currentTodos = colors.allColors.slice(indexOfFirstTodo, indexOfLastTodo);
+      var renderTodos = currentTodos.map(function (todo) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: todo.id
+        }, todo.hexCode);
+      }); // Logic for displaying page numbers
+
+      var pageNumbers = [];
+
+      for (var i = 1; i <= Math.ceil(colors.allColors.length / todosPerPage); i++) {
+        pageNumbers.push(i);
+      }
+
+      var renderPageNumbers = pageNumbers.map(function (number) {
+        if (number === _this2.state.currentPage) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            key: number,
+            type: "button",
+            className: "ind-page-nums",
+            id: number,
+            onClick: _this2.handleClick,
+            style: {
+              textDecoration: 'underline',
+              fontWeight: 900
+            }
+          }, number);
+        } else {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            key: number,
+            type: "button",
+            className: "ind-page-nums",
+            id: number,
+            onClick: _this2.handleClick
+          }, number);
+        }
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, renderTodos), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        id: "page-numbers"
+      }, renderPageNumbers)) // <div id="all-colors-container">
+      //   {colors.allColors.map(color => (
+      //     <Link to={`/colors/${color.id}`} key={color.id}>
+      //       <div
+      //         className="color-container"
+      //         style={{ backgroundColor: `${color.hexCode}` }}
+      //       >
+      //         <button type="button">{color.hexCode}</button>
+      //       </div>
+      //     </Link>
+      //   ))}
+      // </div>
+      ;
     }
   }]);
 
@@ -317,7 +377,15 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Colors));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Colors)); // const page1 = colors.allColors.slice(0, 12);
+// const page2 = colors.allColors.slice(12, 24);
+// const page3 = colors.allColors.slice(24, 36);
+// const page4 = colors.allColors.slice(36, 48);
+// const page5 = colors.allColors.slice(48, 60);
+// const page6 = colors.allColors.slice(60, 72);
+// const page7 = colors.allColors.slice(72, 84);
+// const page8 = colors.allColors.slice(84, 96);
+// const page9 = colors.allColors.slice(96);
 
 /***/ }),
 
@@ -964,7 +1032,8 @@ var fetchSingleCategory = function fetchSingleCategory(name) {
   switch (action.type) {
     case GOT_COLORS:
       return _objectSpread({}, state, {
-        allColors: action.colors
+        allColors: action.colors,
+        loading: false
       });
 
     case GOT_SINGLE_COLOR:
