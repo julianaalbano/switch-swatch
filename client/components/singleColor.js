@@ -32,6 +32,7 @@ export class SingleColor extends React.Component {
             </button>
           </Link>
         </div>
+        <br />
       </div>
     );
   }

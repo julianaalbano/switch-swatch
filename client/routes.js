@@ -12,14 +12,14 @@ const Routes = props => {
       <Route exact path="/" component={Home} />
       <Route exact path="/colors" component={Colors} />
       <Route exact path="/colors/:hexName" component={SingleColor} />
-      <Route exact path="/red" component={colorCategory} />
-      <Route exact path="/orange" component={colorCategory} />
-      <Route exact path="/yellow" component={colorCategory} />
-      <Route exact path="/green" component={colorCategory} />
-      <Route exact path="/blue" component={colorCategory} />
-      <Route exact path="/purple" component={colorCategory} />
-      <Route exact path="/brown" component={colorCategory} />
-      <Route exact path="/gray" component={colorCategory} />
+      <Route exact path="/Red" component={colorCategory} />
+      <Route exact path="/Orange" component={colorCategory} />
+      <Route exact path="/Yellow" component={colorCategory} />
+      <Route exact path="/Green" component={colorCategory} />
+      <Route exact path="/Blue" component={colorCategory} />
+      <Route exact path="/Purple" component={colorCategory} />
+      <Route exact path="/Brown" component={colorCategory} />
+      <Route exact path="/Gray" component={colorCategory} />
     </Switch>
   );
 };

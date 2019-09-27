@@ -52,6 +52,18 @@ const massColorListing = [
     hexCode: '#ec474d',
     categoryId: 1,
   },
+  {
+    hexCode: '#a4200e',
+    categoryId: 1,
+  },
+  {
+    hexCode: '#671409',
+    categoryId: 1,
+  },
+  {
+    hexCode: '#ee533f',
+    categoryId: 1,
+  },
   //ORANGE CATEGORY
   {
     hexCode: '#d2691e',
@@ -103,6 +115,18 @@ const massColorListing = [
   },
   {
     hexCode: '#ff7b08',
+    categoryId: 2,
+  },
+  {
+    hexCode: '#e64f14',
+    categoryId: 2,
+  },
+  {
+    hexCode: '#f74802',
+    categoryId: 2,
+  },
+  {
+    hexCode: '#fd804e',
     categoryId: 2,
   },
   //YELLOW CATEGORY
@@ -158,6 +182,18 @@ const massColorListing = [
     hexCode: '#d4af15',
     categoryId: 3,
   },
+  {
+    hexCode: '#fde64e',
+    categoryId: 3,
+  },
+  {
+    hexCode: '#e8ca02',
+    categoryId: 3,
+  },
+  {
+    hexCode: '#f4dd48',
+    categoryId: 3,
+  },
   //GREEN CATEGORY
   {
     hexCode: '#003f00',
@@ -209,6 +245,18 @@ const massColorListing = [
   },
   {
     hexCode: '#66cc66',
+    categoryId: 4,
+  },
+  {
+    hexCode: '#81f448',
+    categoryId: 4,
+  },
+  {
+    hexCode: '#41ae0a',
+    categoryId: 4,
+  },
+  {
+    hexCode: '#54bc20',
     categoryId: 4,
   },
   //BLUE CATEGORY
@@ -264,6 +312,18 @@ const massColorListing = [
     hexCode: '#001eff',
     categoryId: 5,
   },
+  {
+    hexCode: '#209fbc',
+    categoryId: 5,
+  },
+  {
+    hexCode: '#12768c',
+    categoryId: 5,
+  },
+  {
+    hexCode: '#61d1ea',
+    categoryId: 5,
+  },
   //PURPLE CATEGORY
   {
     hexCode: '#7d36ba',
@@ -315,6 +375,18 @@ const massColorListing = [
   },
   {
     hexCode: '#b000ff',
+    categoryId: 6,
+  },
+  {
+    hexCode: '#b12fe4',
+    categoryId: 6,
+  },
+  {
+    hexCode: '#842fe4',
+    categoryId: 6,
+  },
+  {
+    hexCode: '#c02fe4',
     categoryId: 6,
   },
   //BROWN CATEGORY
@@ -370,6 +442,18 @@ const massColorListing = [
     hexCode: '#400000',
     categoryId: 7,
   },
+  {
+    hexCode: '#ea9d61',
+    categoryId: 7,
+  },
+  {
+    hexCode: '#be6019',
+    categoryId: 7,
+  },
+  {
+    hexCode: '#e47e2f',
+    categoryId: 7,
+  },
   //GRAY CATEGORY
   {
     hexCode: '#212121',
@@ -421,6 +505,18 @@ const massColorListing = [
   },
   {
     hexCode: '#a3a3a3',
+    categoryId: 8,
+  },
+  {
+    hexCode: '#898b89',
+    categoryId: 8,
+  },
+  {
+    hexCode: '#4e504f',
+    categoryId: 8,
+  },
+  {
+    hexCode: '#191a19',
     categoryId: 8,
   },
 ];

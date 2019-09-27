@@ -7,14 +7,14 @@ async function seed() {
   console.log('db synced!');
 
   const categories = await Promise.all([
-    Category.create({ name: 'red' }),
-    Category.create({ name: 'orange' }),
-    Category.create({ name: 'yellow' }),
-    Category.create({ name: 'green' }),
-    Category.create({ name: 'blue' }),
-    Category.create({ name: 'purple' }),
-    Category.create({ name: 'brown' }),
-    Category.create({ name: 'gray' }),
+    Category.create({ name: 'Red' }),
+    Category.create({ name: 'Orange' }),
+    Category.create({ name: 'Yellow' }),
+    Category.create({ name: 'Green' }),
+    Category.create({ name: 'Blue' }),
+    Category.create({ name: 'Purple' }),
+    Category.create({ name: 'Brown' }),
+    Category.create({ name: 'Gray' }),
   ]);
 
   console.log(`seeded ${categories.length} color categories`);

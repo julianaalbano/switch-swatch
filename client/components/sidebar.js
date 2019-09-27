@@ -18,28 +18,28 @@ class Sidebar extends React.Component {
         </button>
         <div id="sidebar-colors">
           <div className="sidebar-color-links">
-            <Link to="/red">Red</Link>
+            <Link to="/Red">Red</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/orange">Orange</Link>
+            <Link to="/Orange">Orange</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/yellow">Yellow</Link>
+            <Link to="/Yellow">Yellow</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/green">Green</Link>
+            <Link to="/Green">Green</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/blue">Blue</Link>
+            <Link to="/Blue">Blue</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/purple">Purple</Link>
+            <Link to="/Purple">Purple</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/brown">Brown</Link>
+            <Link to="/Brown">Brown</Link>
           </div>
           <div className="sidebar-color-links">
-            <Link to="/gray">Gray</Link>
+            <Link to="/Gray">Gray</Link>
           </div>
           <br />
         </div>

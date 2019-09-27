@@ -12,7 +12,7 @@ class ColorCategory extends React.Component {
     if (this.props.colors.loading) return <h1>Loading...</h1>;
     return (
       <div id="all-category-container">
-        <h1 id="category-title">{colors.colorCategory.name} category</h1>
+        <h1 id="category-title">{colors.colorCategory.name}</h1>
         <div id="ind-colors-container">
           {colors.colorCategory.colors.map(color => (
             <Link to={`/colors/${color.id}`} key={color.id}>
@@ -25,16 +25,13 @@ class ColorCategory extends React.Component {
             </Link>
           ))}
         </div>
+        <br />
         <Link
           to="/colors"
           className="wrapper"
           style={{ textDecoration: 'none' }}
         >
-          <button
-            type="button"
-            className="pointer-cursor"
-            id="backtocolors-margin"
-          >
+          <button type="button" className="pointer-cursor">
             Back to all colors
           </button>
         </Link>
