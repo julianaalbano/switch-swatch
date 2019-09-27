@@ -115,6 +115,109 @@ var App = function App() {
 
 /***/ }),
 
+/***/ "./client/components/colorCategory.js":
+/*!********************************************!*\
+  !*** ./client/components/colorCategory.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _store_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/colors */ "./client/store/colors.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var ColorCategory =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ColorCategory, _React$Component);
+
+  function ColorCategory() {
+    _classCallCheck(this, ColorCategory);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ColorCategory).apply(this, arguments));
+  }
+
+  _createClass(ColorCategory, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchSingleCategory(this.props.match.path.slice(1));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var colors = this.props.colors;
+      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading...");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "all-category-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, colors.colorCategory.name, " category"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "ind-colors-container"
+      }, colors.colorCategory.colors.map(function (color) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/colors/".concat(color.id),
+          key: color.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "color-container",
+          style: {
+            backgroundColor: "".concat(color.hexCode)
+          }
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button"
+        }, color.hexCode)));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/colors"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button"
+      }, "Back to all colors")));
+    }
+  }]);
+
+  return ColorCategory;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+function mapStateToProps(state) {
+  return {
+    colors: state.colors
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchSingleCategory: function fetchSingleCategory(name) {
+      dispatch(Object(_store_colors__WEBPACK_IMPORTED_MODULE_3__["fetchSingleCategory"])(name));
+    }
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(ColorCategory));
+
+/***/ }),
+
 /***/ "./client/components/colors.js":
 /*!*************************************!*\
   !*** ./client/components/colors.js ***!
@@ -160,7 +263,7 @@ function (_React$Component) {
   function Colors() {
     _classCallCheck(this, Colors);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Colors).call(this)); // this.state = {};
+    return _possibleConstructorReturn(this, _getPrototypeOf(Colors).apply(this, arguments));
   }
 
   _createClass(Colors, [{
@@ -186,10 +289,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button"
         }, color.hexCode)));
-      })) // <div>
-      //   <p>you got this</p>
-      // </div>
-      ;
+      }));
     }
   }]);
 
@@ -556,7 +656,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/home */ "./client/components/home.js");
 /* harmony import */ var _components_colors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/colors */ "./client/components/colors.js");
 /* harmony import */ var _components_singleColor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/singleColor */ "./client/components/singleColor.js");
+/* harmony import */ var _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/colorCategory */ "./client/components/colorCategory.js");
  // import {connect} from 'react-redux'
+
 
 
 
@@ -576,6 +678,38 @@ var Routes = function Routes(props) {
     exact: true,
     path: "/colors/:hexName",
     component: _components_singleColor__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/red",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/orange",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/yellow",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/green",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/blue",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/purple",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/brown",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/gray",
+    component: _components_colorCategory__WEBPACK_IMPORTED_MODULE_5__["default"]
   }));
 };
 
@@ -624,7 +758,8 @@ var GOT_COLOR_CATEGORY = 'GOT_COLOR_CATEGORY'; // const REMOVE_USER = 'REMOVE_US
 var initialState = {
   allColors: [],
   singleColor: {},
-  colorCategory: {}
+  colorCategory: {},
+  loading: true
 };
 /**
  * ACTION CREATORS
@@ -738,7 +873,7 @@ var fetchSingleColor = function fetchSingleColor(id) {
     }()
   );
 };
-var fetchSingleCategory = function fetchSingleCategory(id) {
+var fetchSingleCategory = function fetchSingleCategory(name) {
   return (
     /*#__PURE__*/
     function () {
@@ -752,7 +887,7 @@ var fetchSingleCategory = function fetchSingleCategory(id) {
               case 0:
                 _context3.prev = 0;
                 _context3.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/categories/".concat(id));
+                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/categories/".concat(name));
 
               case 3:
                 res = _context3.sent;
@@ -823,7 +958,8 @@ var fetchSingleCategory = function fetchSingleCategory(id) {
 
     case GOT_COLOR_CATEGORY:
       return _objectSpread({}, state, {
-        colorCategory: action.category
+        colorCategory: action.category,
+        loading: false
       });
     // case REMOVE_USER:
     //   return defaultUser;

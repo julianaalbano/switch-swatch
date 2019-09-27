@@ -16,6 +16,7 @@ const initialState = {
   allColors: [],
   singleColor: {},
   colorCategory: {},
+  loading: true,
 };
 
 /**
@@ -58,9 +59,9 @@ export const fetchSingleColor = id => async dispatch => {
   }
 };
 
-export const fetchSingleCategory = id => async dispatch => {
+export const fetchSingleCategory = name => async dispatch => {
   try {
-    const res = await axios.get(`/api/categories/${id}`);
+    const res = await axios.get(`/api/categories/${name}`);
     dispatch(gotColorCategory(res.data));
   } catch (err) {
     console.error(err);
@@ -103,7 +104,7 @@ export default function(state = initialState, action) {
     case GOT_SINGLE_COLOR:
       return { ...state, singleColor: action.color };
     case GOT_COLOR_CATEGORY:
-      return { ...state, colorCategory: action.category };
+      return { ...state, colorCategory: action.category, loading: false };
     // case REMOVE_USER:
     //   return defaultUser;
     default:

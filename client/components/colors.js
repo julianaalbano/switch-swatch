@@ -4,10 +4,6 @@ import { fetchColors } from '../store/colors';
 import { Link } from 'react-router-dom';
 
 class Colors extends React.Component {
-  constructor() {
-    super();
-    // this.state = {};
-  }
   componentDidMount() {
     this.props.fetchColors();
   }
@@ -26,9 +22,6 @@ class Colors extends React.Component {
           </Link>
         ))}
       </div>
-      // <div>
-      //   <p>you got this</p>
-      // </div>
     );
   }
 }
