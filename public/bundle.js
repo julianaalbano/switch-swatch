@@ -279,9 +279,7 @@ var Nav = function Nav(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/colors */ "./client/store/colors.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -292,18 +290,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
+ // import { connect } from 'react-redux';
+// import { fetchSingleColor } from '../store/colors';
 
 
 
@@ -318,54 +314,54 @@ function (_React$Component) {
     _classCallCheck(this, Sidebar);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Sidebar).call(this));
-
-    _defineProperty(_assertThisInitialized(_this), "colorGenerator", function () {
-      var randomNum = Math.floor(Math.random() * 104) + 1; // this.setState({ randomNum });
-    });
-
     _this.state = {};
     return _this;
-  }
+  } // componentDidMount() {
+  //   // this.props.fetchColors();
+  // }
+  // colorGenerator = () => {
+  //   let randomNum = Math.floor(Math.random() * 104) + 1;
+  //   // this.setState({ randomNum });
+  // };
+  // let randomColor = colorGenerator();
+
 
   _createClass(Sidebar, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// this.props.fetchColors();
-    }
-  }, {
     key: "render",
-    // let randomColor = colorGenerator();
     value: function render() {
+      var history = this.props.history;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "sidebar-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-        to: "/colors/".concat(this.colorGenerator())
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
-        id: "random-button"
-      }, "Random Color")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "random-button",
+        onClick: history.push("/colors/".concat(Math.floor(Math.random() * 104) + 1))
+      }, "Random Color"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "sidebar-colors"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Red"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Orange"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Yellow"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Green"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Blue"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Purple"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Brown"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Gray")));
     }
   }]);
 
   return Sidebar;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // function mapStateToProps(state) {
+//   return {
+//     singleColor: state.colors,
+//   };
+// }
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchSingleColor: function(id) {
+//       dispatch(fetchSingleColor(id));
+//     },
+//   };
+// }
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Sidebar);
 
-function mapStateToProps(state) {
-  return {
-    singleColor: state.colors
-  };
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchSingleColor: function fetchSingleColor(id) {
-      dispatch(Object(_store_colors__WEBPACK_IMPORTED_MODULE_2__["fetchSingleColor"])(id));
-    }
-  };
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Sidebar));
+/* harmony default export */ __webpack_exports__["default"] = (Sidebar);
 
 /***/ }),
 

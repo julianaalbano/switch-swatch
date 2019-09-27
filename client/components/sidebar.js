@@ -1,6 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchSingleColor } from '../store/colors';
+// import { connect } from 'react-redux';
+// import { fetchSingleColor } from '../store/colors';
 import { Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
@@ -8,22 +8,29 @@ class Sidebar extends React.Component {
     super();
     this.state = {};
   }
-  componentDidMount() {
-    // this.props.fetchColors();
-  }
-  colorGenerator = () => {
-    let randomNum = Math.floor(Math.random() * 104) + 1;
-    // this.setState({ randomNum });
-  };
+  // componentDidMount() {
+  //   // this.props.fetchColors();
+  // }
+  // colorGenerator = () => {
+  //   let randomNum = Math.floor(Math.random() * 104) + 1;
+  //   // this.setState({ randomNum });
+  // };
   // let randomColor = colorGenerator();
   render() {
+    const { history } = this.props;
     return (
       <div id="sidebar-container">
-        <Link to={`/colors/${this.colorGenerator()}`}>
-          <button type="button" id="random-button">
-            Random Color
-          </button>
-        </Link>
+        {/* <Link to={`/colors/${colorGenerator()}`}> */}
+        <button
+          type="button"
+          id="random-button"
+          onClick={history.push(
+            `/colors/${Math.floor(Math.random() * 104) + 1}`
+          )}
+        >
+          Random Color
+        </button>
+        {/* </Link> */}
         <div id="sidebar-colors">
           <p>Red</p>
           <p>Orange</p>
@@ -39,21 +46,23 @@ class Sidebar extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    singleColor: state.colors,
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     singleColor: state.colors,
+//   };
+// }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchSingleColor: function(id) {
-      dispatch(fetchSingleColor(id));
-    },
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchSingleColor: function(id) {
+//       dispatch(fetchSingleColor(id));
+//     },
+//   };
+// }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Sidebar);
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Sidebar);
+
+export default Sidebar;
