@@ -173,41 +173,41 @@ function (_React$Component) {
     value: function render() {
       var colors = this.props.colors;
 
-      if (this.props.colors.loading) {
+      if (this.props.loading) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
           className: "loading-img"
         });
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "all-category-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        id: "category-title"
-      }, colors.colorCategory.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "ind-colors-container"
-      }, colors.colorCategory.colors.map(function (color) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-          to: "/colors/".concat(color.id),
-          key: color.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "color-container",
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "all-category-container"
+        }, console.log('THIS.PROPS: ', this.props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+          id: "category-title"
+        }, colors.colorCategory.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "ind-colors-container"
+        }, console.log(colors.colorCategory.colors, Array.isArray(colors.colorCategory.colors)), colors.colorCategory.colors.map(function (color) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+            to: "/colors/".concat(color.id),
+            key: color.id
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "color-container",
+            style: {
+              backgroundColor: "".concat(color.hexCode)
+            }
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            type: "button"
+          }, color.hexCode)));
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/",
+          className: "wrapper",
           style: {
-            backgroundColor: "".concat(color.hexCode)
+            textDecoration: 'none'
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          type: "button"
-        }, color.hexCode)));
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/",
-        className: "wrapper",
-        style: {
-          textDecoration: 'none'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        type: "button",
-        className: "pointer-cursor"
-      }, "Back to all colors")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+          type: "button",
+          className: "pointer-cursor"
+        }, "Back to all colors")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+      }
     }
   }]);
 
@@ -310,7 +310,7 @@ function (_React$Component) {
       var _this$state = this.state,
           currentPage = _this$state.currentPage,
           colorsPerPage = _this$state.colorsPerPage;
-      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      if (this.props.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
         className: "loading-img"
       });
@@ -500,8 +500,6 @@ function (_React$Component) {
       var name = event.target.name;
 
       _this.props.history.push("/".concat(name));
-
-      console.log(name);
 
       _this.props.fetchSingleCategory(name);
     });
@@ -1017,30 +1015,7 @@ var fetchSingleCategory = function fetchSingleCategory(name) {
       };
     }()
   );
-}; // export const auth = (email, password, method) => async dispatch => {
-//   let res;
-//   try {
-//     res = await axios.post(`/auth/${method}`, { email, password });
-//   } catch (authError) {
-//     return dispatch(getUser({ error: authError }));
-//   }
-//   try {
-//     dispatch(getUser(res.data));
-//     history.push('/home');
-//   } catch (dispatchOrHistoryErr) {
-//     console.error(dispatchOrHistoryErr);
-//   }
-// };
-// export const logout = () => async dispatch => {
-//   try {
-//     await axios.post('/auth/logout');
-//     dispatch(removeUser());
-//     history.push('/login');
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
-
+};
 /**
  * REDUCER
  */
@@ -1066,8 +1041,6 @@ var fetchSingleCategory = function fetchSingleCategory(name) {
         colorCategory: action.category,
         loading: false
       });
-    // case REMOVE_USER:
-    //   return defaultUser;
 
     default:
       return state;

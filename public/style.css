@@ -28,7 +28,7 @@
 
 #all-colors-container {
   max-width: 1000px;
-  margin: 50px auto;
+  margin: 50px auto 20px auto;
 }
 
 #nav-container {
@@ -83,20 +83,23 @@
   cursor: pointer;
 }
 
-#sidebar-colors a {
-  margin: 23px;
+#sidebar-colors button {
+  margin: 0px 20px;
   background-color: #d6d8d7;
   font-size: 15pt;
   color: #363c3c;
   text-decoration: none;
+  outline: 0;
+  border-color: #d6d8d7;
 }
 
 .sidebar-color-links {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
-#sidebar-colors a:hover {
+#sidebar-colors button:hover {
   font-weight: 900;
+  cursor: pointer;
 }
 
 #search-bar {
@@ -165,7 +168,7 @@
 }
 
 .ind-page-nums {
-  margin: 10px;
+  margin: 5px 10px;
   background-color: #fefffe;
   border-color: #fefffe;
   color: #363c3c;

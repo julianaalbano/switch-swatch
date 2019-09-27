@@ -43,6 +43,7 @@ const gotColorCategory = category => ({
  */
 export const fetchColors = () => async dispatch => {
   try {
+    // this.setState({ loading: true });
     const res = await axios.get('/api/colors');
     dispatch(gotColors(res.data));
   } catch (err) {
@@ -52,6 +53,7 @@ export const fetchColors = () => async dispatch => {
 
 export const fetchSingleColor = id => async dispatch => {
   try {
+    // this.setState({ loading: true });
     const res = await axios.get(`/api/colors/${id}`);
     dispatch(gotSingleColor(res.data));
   } catch (err) {
@@ -61,38 +63,13 @@ export const fetchSingleColor = id => async dispatch => {
 
 export const fetchSingleCategory = name => async dispatch => {
   try {
+    // this.setState({ loading: true });
     const res = await axios.get(`/api/categories/${name}`);
     dispatch(gotColorCategory(res.data));
   } catch (err) {
     console.error(err);
   }
 };
-
-// export const auth = (email, password, method) => async dispatch => {
-//   let res;
-//   try {
-//     res = await axios.post(`/auth/${method}`, { email, password });
-//   } catch (authError) {
-//     return dispatch(getUser({ error: authError }));
-//   }
-
-//   try {
-//     dispatch(getUser(res.data));
-//     history.push('/home');
-//   } catch (dispatchOrHistoryErr) {
-//     console.error(dispatchOrHistoryErr);
-//   }
-// };
-
-// export const logout = () => async dispatch => {
-//   try {
-//     await axios.post('/auth/logout');
-//     dispatch(removeUser());
-//     history.push('/login');
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
 
 /**
  * REDUCER
@@ -105,8 +82,6 @@ export default function(state = initialState, action) {
       return { ...state, singleColor: action.color };
     case GOT_COLOR_CATEGORY:
       return { ...state, colorCategory: action.category, loading: false };
-    // case REMOVE_USER:
-    //   return defaultUser;
     default:
       return state;
   }

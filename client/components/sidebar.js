@@ -13,7 +13,6 @@ class Sidebar extends React.Component {
   handleClickCategory = () => {
     let name = event.target.name;
     this.props.history.push(`/${name}`);
-    console.log(name);
     this.props.fetchSingleCategory(name);
   };
 
