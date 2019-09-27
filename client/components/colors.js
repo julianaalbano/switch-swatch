@@ -103,6 +103,7 @@ class Colors extends React.Component {
 function mapStateToProps(state) {
   return {
     colors: state.colors,
+    loading: state.colors.loading,
   };
 }
 

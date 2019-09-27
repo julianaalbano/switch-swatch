@@ -10,7 +10,6 @@ const Routes = props => {
     <Switch>
       <Route exact path="/" component={Colors} />
       <Route exact path="/colors/:hexName" component={SingleColor} />
-
       <Route exact path="/Red" component={colorCategory} />
       <Route exact path="/Orange" component={colorCategory} />
       <Route exact path="/Yellow" component={colorCategory} />

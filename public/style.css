@@ -3,7 +3,7 @@
 }
 
 .color-container {
-  margin: 25px;
+  margin: 15px 15px 15px 45px;
   height: 150px;
   padding-top: 50px;
   display: inline-block;
@@ -27,7 +27,8 @@
 }
 
 #all-colors-container {
-  margin: 50px 25px;
+  max-width: 1000px;
+  margin: 50px auto;
 }
 
 #nav-container {
@@ -134,7 +135,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 55px 30px;
+  margin: 50px 30px;
   border: solid #363c3c;
   border-width: 1px;
   border-radius: 10px;
@@ -183,4 +184,9 @@
   height: 600px;
   margin-left: 150px;
   margin-top: 150px;
+}
+
+#all-category-container {
+  max-width: 1000px;
+  margin: 50px auto;
 }

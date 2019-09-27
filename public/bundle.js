@@ -172,10 +172,14 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var colors = this.props.colors;
-      if (this.props.colors.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
-        className: "loading-img"
-      });
+
+      if (this.props.colors.loading) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
+          className: "loading-img"
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "all-category-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -194,7 +198,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "button"
         }, color.hexCode)));
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/",
         className: "wrapper",
         style: {
@@ -212,7 +216,8 @@ function (_React$Component) {
 
 function mapStateToProps(state) {
   return {
-    colors: state.colors
+    colors: state.colors,
+    loading: state.colors.loading
   };
 }
 
@@ -369,7 +374,8 @@ function (_React$Component) {
 
 function mapStateToProps(state) {
   return {
-    colors: state.colors
+    colors: state.colors,
+    loading: state.colors.loading
   };
 }
 
@@ -482,12 +488,22 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Sidebar)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
+    _defineProperty(_assertThisInitialized(_this), "handleClickRandom", function () {
       var randomNum = Math.floor(Math.random() * 104) + 1;
 
       _this.props.history.push("/colors/".concat(randomNum));
 
       _this.props.fetchSingleColor(randomNum);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleClickCategory", function () {
+      var name = event.target.name;
+
+      _this.props.history.push("/".concat(name));
+
+      console.log(name);
+
+      _this.props.fetchSingleCategory(name);
     });
 
     return _this;
@@ -501,41 +517,65 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         id: "random-button",
-        onClick: this.handleClick
+        onClick: this.handleClickRandom
       }, "Random Color"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "sidebar-colors"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Red"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Red",
+        onClick: this.handleClickCategory
       }, "Red")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Orange"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Orange",
+        onClick: this.handleClickCategory
       }, "Orange")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Yellow"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Yellow",
+        onClick: this.handleClickCategory
       }, "Yellow")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Green"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Green",
+        onClick: this.handleClickCategory
       }, "Green")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Blue"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Blue",
+        onClick: this.handleClickCategory
       }, "Blue")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Purple"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Purple",
+        onClick: this.handleClickCategory
       }, "Purple")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Brown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Brown",
+        onClick: this.handleClickCategory
       }, "Brown")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/Gray"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "sidebar-category-button",
+        name: "Gray",
+        onClick: this.handleClickCategory
       }, "Gray")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)));
     }
   }]);
@@ -547,6 +587,9 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchSingleColor: function fetchSingleColor(id) {
       dispatch(Object(_store_colors__WEBPACK_IMPORTED_MODULE_2__["fetchSingleColor"])(id));
+    },
+    fetchSingleCategory: function fetchSingleCategory(name) {
+      dispatch(Object(_store_colors__WEBPACK_IMPORTED_MODULE_2__["fetchSingleCategory"])(name));
     }
   };
 }

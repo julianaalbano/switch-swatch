@@ -9,13 +9,14 @@ class ColorCategory extends React.Component {
   }
   render() {
     const { colors } = this.props;
-    if (this.props.colors.loading)
+    if (this.props.colors.loading) {
       return (
         <img
           src="https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif"
           className="loading-img"
         />
       );
+    }
     return (
       <div id="all-category-container">
         <h1 id="category-title">{colors.colorCategory.name}</h1>
@@ -32,6 +33,7 @@ class ColorCategory extends React.Component {
           ))}
         </div>
         <br />
+        <br />
         <Link to="/" className="wrapper" style={{ textDecoration: 'none' }}>
           <button type="button" className="pointer-cursor">
             Back to all colors
@@ -47,6 +49,7 @@ class ColorCategory extends React.Component {
 function mapStateToProps(state) {
   return {
     colors: state.colors,
+    loading: state.colors.loading,
   };
 }
 
