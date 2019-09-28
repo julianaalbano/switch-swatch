@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { fetchSingleCategory } from '../store/colors';
 
 class ColorCategory extends React.Component {
-  componentDidMount() {
-    this.props.fetchSingleCategory(this.props.match.path.slice(1));
+  async componentDidMount() {
+    await this.props.fetchSingleCategory(this.props.match.path.slice(1));
   }
   render() {
-    const { colors } = this.props;
+    const colorCategory = this.props.colorCategory;
+    const colorsInCategory = this.props.colorsInCategory;
     if (this.props.loading) {
       return (
         <img
@@ -19,14 +20,10 @@ class ColorCategory extends React.Component {
     } else {
       return (
         <div id="all-category-container">
-          {console.log('THIS.PROPS: ', this.props)}
-          <h1 id="category-title">{colors.colorCategory.name}</h1>
+          <h1 id="category-title">{colorCategory.name}</h1>
+          {/* {console.log(colorsInCategory.length)} */}
           <div id="ind-colors-container">
-            {console.log(
-              colors.colorCategory.colors,
-              Array.isArray(colors.colorCategory.colors)
-            )}
-            {colors.colorCategory.colors.map(color => (
+            {colorsInCategory.map(color => (
               <Link to={`/colors/${color.id}`} key={color.id}>
                 <div
                   className="color-container"
@@ -54,7 +51,8 @@ class ColorCategory extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    colors: state.colors,
+    colorCategory: state.colors.colorCategory,
+    colorsInCategory: state.colors.colorsInCategory,
     loading: state.colors.loading,
   };
 }

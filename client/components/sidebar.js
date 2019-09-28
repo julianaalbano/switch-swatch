@@ -10,10 +10,10 @@ class Sidebar extends React.Component {
     this.props.fetchSingleColor(randomNum);
   };
 
-  handleClickCategory = () => {
+  handleClickCategory = async () => {
     let name = event.target.name;
     this.props.history.push(`/${name}`);
-    this.props.fetchSingleCategory(name);
+    await this.props.fetchSingleCategory(name);
   };
 
   render() {
@@ -33,9 +33,7 @@ class Sidebar extends React.Component {
               className="sidebar-category-button"
               name="Red"
               onClick={this.handleClickCategory}
-            >
-              Red
-            </button>
+            ></button>
           </div>
           <div className="sidebar-color-links">
             <button
