@@ -805,7 +805,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/colors */ "./client/components/colors.js");
 /* harmony import */ var _components_singleColor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/singleColor */ "./client/components/singleColor.js");
 /* harmony import */ var _components_colorCategory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/colorCategory */ "./client/components/colorCategory.js");
- // import {connect} from 'react-redux'
 
 
 
