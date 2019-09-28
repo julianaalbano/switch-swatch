@@ -574,7 +574,7 @@ function (_React$Component) {
         className: "sidebar-category-button",
         name: "Red",
         onClick: this.handleClickCategory
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Red")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-color-links"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",

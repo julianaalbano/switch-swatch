@@ -28,7 +28,7 @@
 
 #all-colors-container {
   max-width: 1000px;
-  margin: 50px auto 20px auto;
+  margin: 30px auto 20px auto;
 }
 
 #nav-container {
@@ -75,7 +75,7 @@
   border-radius: 10px;
   border-color: #363c3c;
   font-size: 15pt;
-  margin-top: 80px;
+  margin-top: 45px;
   margin-left: 20px;
   margin-right: 20px;
   font-weight: 900;
@@ -138,7 +138,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 50px 30px;
+  margin: 45px 30px 50px 30px;
   border: solid #363c3c;
   border-width: 1px;
   border-radius: 10px;
@@ -153,7 +153,7 @@
 
 #single-view-container p {
   text-align: left;
-  margin: 10px 0px;
+  margin: 20px 0px;
   font-size: 16pt;
   margin: 20px 50px;
 }
@@ -185,11 +185,11 @@
 .loading-img {
   width: 600px;
   height: 600px;
-  margin-left: 150px;
+  margin-left: 350px;
   margin-top: 150px;
 }
 
 #all-category-container {
   max-width: 1000px;
-  margin: 50px auto;
+  margin: 23px auto;
 }

@@ -33,7 +33,9 @@ class Sidebar extends React.Component {
               className="sidebar-category-button"
               name="Red"
               onClick={this.handleClickCategory}
-            ></button>
+            >
+              Red
+            </button>
           </div>
           <div className="sidebar-color-links">
             <button
