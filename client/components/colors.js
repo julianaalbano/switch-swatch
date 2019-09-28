@@ -25,13 +25,14 @@ class Colors extends React.Component {
   render() {
     const { colors } = this.props;
     const { currentPage, colorsPerPage } = this.state;
-    if (this.props.loading)
+    if (this.props.loading) {
       return (
         <img
           src="https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif"
           className="loading-img"
         />
       );
+    }
 
     const indexOfLastColor = currentPage * colorsPerPage;
     const indexOfFirstColor = indexOfLastColor - colorsPerPage;
@@ -119,13 +120,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Colors);
-
-// const page1 = colors.allColors.slice(0, 12);
-// const page2 = colors.allColors.slice(12, 24);
-// const page3 = colors.allColors.slice(24, 36);
-// const page4 = colors.allColors.slice(36, 48);
-// const page5 = colors.allColors.slice(48, 60);
-// const page6 = colors.allColors.slice(60, 72);
-// const page7 = colors.allColors.slice(72, 84);
-// const page8 = colors.allColors.slice(84, 96);
-// const page9 = colors.allColors.slice(96);

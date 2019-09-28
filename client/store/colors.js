@@ -1,17 +1,6 @@
 import axios from 'axios';
-// import history from '../history';
 
-/**
- * ACTION TYPES
- */
-const GOT_COLORS = 'GOT_COLORS';
-const GOT_SINGLE_COLOR = 'GOT_SINGLE_COLOR';
-const GOT_COLOR_CATEGORY = 'GOT_COLOR_CATEGORY';
-// const REMOVE_USER = 'REMOVE_USER';
-
-/**
- * INITIAL STATE
- */
+// INITIAL STATE
 const initialState = {
   allColors: [],
   singleColor: {},
@@ -20,9 +9,12 @@ const initialState = {
   loading: true,
 };
 
-/**
- * ACTION CREATORS
- */
+// ACTION TYPES
+const GOT_COLORS = 'GOT_COLORS';
+const GOT_SINGLE_COLOR = 'GOT_SINGLE_COLOR';
+const GOT_COLOR_CATEGORY = 'GOT_COLOR_CATEGORY';
+
+// ACTION CREATORS
 const gotColors = colors => ({
   type: GOT_COLORS,
   colors,
@@ -37,11 +29,8 @@ const gotColorCategory = category => ({
   type: GOT_COLOR_CATEGORY,
   category,
 });
-// const removeUser = () => ({ type: REMOVE_USER });
 
-/**
- * THUNK CREATORS
- */
+// THUNKS
 export const fetchColors = () => async dispatch => {
   try {
     const res = await axios.get('/api/colors');
@@ -69,9 +58,7 @@ export const fetchSingleCategory = name => async dispatch => {
   }
 };
 
-/**
- * REDUCER
- */
+// REDUCER
 export default function(state = initialState, action) {
   switch (action.type) {
     case GOT_COLORS:

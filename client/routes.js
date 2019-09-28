@@ -1,5 +1,4 @@
 import React from 'react';
-// import {connect} from 'react-redux'
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Colors from './components/colors';
 import SingleColor from './components/singleColor';

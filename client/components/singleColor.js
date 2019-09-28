@@ -4,11 +4,6 @@ import { fetchSingleColor } from '../store/colors';
 import { Link } from 'react-router-dom';
 
 export class SingleColor extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   componentDidMount() {
     this.props.fetchSingleColor(this.props.match.params.hexName);
   }

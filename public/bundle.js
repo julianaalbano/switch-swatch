@@ -338,10 +338,14 @@ function (_React$Component) {
       var _this$state = this.state,
           currentPage = _this$state.currentPage,
           colorsPerPage = _this$state.colorsPerPage;
-      if (this.props.loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
-        className: "loading-img"
-      });
+
+      if (this.props.loading) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://loading.io/spinners/ellipsis/lg.discuss-ellipsis-preloader.gif",
+          className: "loading-img"
+        });
+      }
+
       var indexOfLastColor = currentPage * colorsPerPage;
       var indexOfFirstColor = indexOfLastColor - colorsPerPage;
       var currentColors = colors.allColors.slice(indexOfFirstColor, indexOfLastColor);
@@ -415,15 +419,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Colors)); // const page1 = colors.allColors.slice(0, 12);
-// const page2 = colors.allColors.slice(12, 24);
-// const page3 = colors.allColors.slice(24, 36);
-// const page4 = colors.allColors.slice(36, 48);
-// const page5 = colors.allColors.slice(48, 60);
-// const page6 = colors.allColors.slice(60, 72);
-// const page7 = colors.allColors.slice(72, 84);
-// const page8 = colors.allColors.slice(84, 96);
-// const page9 = colors.allColors.slice(96);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(Colors));
 
 /***/ }),
 
@@ -688,13 +684,9 @@ function (_React$Component) {
   _inherits(SingleColor, _React$Component);
 
   function SingleColor() {
-    var _this;
-
     _classCallCheck(this, SingleColor);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SingleColor).call(this));
-    _this.state = {};
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(SingleColor).apply(this, arguments));
   }
 
   _createClass(SingleColor, [{
@@ -892,19 +884,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
- // import history from '../history';
-
-/**
- * ACTION TYPES
- */
-
-var GOT_COLORS = 'GOT_COLORS';
-var GOT_SINGLE_COLOR = 'GOT_SINGLE_COLOR';
-var GOT_COLOR_CATEGORY = 'GOT_COLOR_CATEGORY'; // const REMOVE_USER = 'REMOVE_USER';
-
-/**
- * INITIAL STATE
- */
+ // INITIAL STATE
 
 var initialState = {
   allColors: [],
@@ -912,10 +892,11 @@ var initialState = {
   colorCategory: {},
   colorsInCategory: [],
   loading: true
-};
-/**
- * ACTION CREATORS
- */
+}; // ACTION TYPES
+
+var GOT_COLORS = 'GOT_COLORS';
+var GOT_SINGLE_COLOR = 'GOT_SINGLE_COLOR';
+var GOT_COLOR_CATEGORY = 'GOT_COLOR_CATEGORY'; // ACTION CREATORS
 
 var gotColors = function gotColors(colors) {
   return {
@@ -936,11 +917,7 @@ var gotColorCategory = function gotColorCategory(category) {
     type: GOT_COLOR_CATEGORY,
     category: category
   };
-}; // const removeUser = () => ({ type: REMOVE_USER });
-
-/**
- * THUNK CREATORS
- */
+}; // THUNKS
 
 
 var fetchColors = function fetchColors() {
@@ -1065,10 +1042,7 @@ var fetchSingleCategory = function fetchSingleCategory(name) {
       };
     }()
   );
-};
-/**
- * REDUCER
- */
+}; // REDUCER
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;

@@ -21,7 +21,6 @@ class ColorCategory extends React.Component {
       return (
         <div id="all-category-container">
           <h1 id="category-title">{colorCategory.name}</h1>
-          {/* {console.log(colorsInCategory.length)} */}
           <div id="ind-colors-container">
             {colorsInCategory.map(color => (
               <Link to={`/colors/${color.id}`} key={color.id}>
